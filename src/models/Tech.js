@@ -5,7 +5,6 @@ class Tech extends Model {
     super.init({
       name: DataTypes.STRING
     }, { sequelize, tableName: 'techs' });
-    // Posso forçar o nome da table ser 'techs', por padrão ele pluralizou para teches.
   }
 
   static associate(models) {

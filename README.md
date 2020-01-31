@@ -355,7 +355,8 @@
       static init(sequelize) {
         super.init({
           name: DataTypes.STRING
-        }, { sequelize });
+        }, { sequelize, tableName: 'techs' });
+        // Posso forçar o nome da table ser 'techs', por padrão ele pluralizou para teches.
       }
 
       static associate(models) {
@@ -414,4 +415,9 @@
   ```
   [N:N-Associations](https://sequelize.org/v5/manual/associations.html#belongs-to-many-associations)
 
-  Veja o exemplo, um usuário(**User**) tem muitos projetos e um projeto(**Project**) pode estar associado a muitos usuários. Aí gera uma terceira tabela pivô, **UserProject**. Toda vez que criamos um relacionamento **belongsToMany**, o sequelize automaticamente cria um **.addProject()** para relacionarmos um projeto com um usuário. Mas existem outros métodos como **.getProjects()**, **.setProjects()**, **.RemoveProjects()**, ...
+  Veja o exemplo, um usuário(**User**) tem muitos projetos, e um projeto(**Project**) pode estar associado a muitos usuários. Aí gera uma terceira tabela pivô, **UserProject**. Toda vez que criamos um relacionamento **belongsToMany**, o sequelize automaticamente cria um **.addProject()** para relacionarmos um projeto com um usuário. Mas existem outros métodos como **.getProjects()**, **.setProjects()**, **.RemoveProjects()**, ...
+
+  No método **get** podemos remover os atributos utilizando o método through: Veja o exemplo:
+  ```
+    
+  ```
